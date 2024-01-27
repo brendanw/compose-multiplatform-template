@@ -12,8 +12,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+
+var launchVideoPlayer: (() -> Unit)? = null
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
@@ -25,12 +28,13 @@ fun App() {
             Button(onClick = {
                 greetingText = "Hello, ${getPlatformName()}"
                 showImage = !showImage
+                launchVideoPlayer?.let { it() }
             }) {
                 Text(greetingText)
             }
             AnimatedVisibility(showImage) {
                 Image(
-                    painterResource("compose-multiplatform.xml"),
+                    painterResource(DrawableResource("compose-multiplatform.xml")),
                     contentDescription = "Compose Multiplatform icon"
                 )
             }
