@@ -16,6 +16,8 @@ import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
+var launchVideoPlayer: (() -> Unit)? = null
+
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun App() {
@@ -26,6 +28,7 @@ fun App() {
             Button(onClick = {
                 greetingText = "Hello, ${getPlatformName()}"
                 showImage = !showImage
+                launchVideoPlayer?.let { it() }
             }) {
                 Text(greetingText)
             }
