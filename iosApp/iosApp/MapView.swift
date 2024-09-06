@@ -28,13 +28,12 @@ class MapWidget : UIView {
       myMapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
       myMapView.ornaments.options.compass.visibility = .hidden
       myMapView.ornaments.options.scaleBar.visibility = .hidden
-      myMapView.gestures.options.panEnabled = false
-      myMapView.gestures.options.pinchEnabled = false
-      myMapView.gestures.options.quickZoomEnabled = false
-      myMapView.gestures.options.doubleTapToZoomInEnabled = false
-      myMapView.gestures.options.doubleTouchToZoomOutEnabled = false
-      myMapView.gestures.options.rotateEnabled = false
-      myMapView.gestureRecognizers?.removeAll()
+      myMapView.gestures.options.panEnabled = true
+      myMapView.gestures.options.pinchEnabled = true
+      myMapView.gestures.options.quickZoomEnabled = true
+      myMapView.gestures.options.doubleTapToZoomInEnabled = true
+      myMapView.gestures.options.doubleTouchToZoomOutEnabled = true
+      myMapView.gestures.options.rotateEnabled = true
       
       myMapView.ornaments.attributionButton.isHidden = true
       myMapView.ornaments.options.attributionButton.margins = .init(x: -10000, y: 0)
